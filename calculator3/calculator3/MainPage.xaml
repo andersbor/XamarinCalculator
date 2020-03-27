@@ -4,11 +4,47 @@
              xmlns:local="clr-namespace:calculator3"
              x:Class="calculator3.MainPage">
 
-    <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
+    <StackLayout Orientation="Vertical">
+        <StackLayout Orientation="Horizontal" VerticalOptions="Start">
+            <Entry Placeholder="Number"
+                   VerticalOptions="Start"
+                   Keyboard="Numeric"
+                   x:Name="Number1Entry" />
+
+            <!--Label VerticalOptions="Start"
+               Text="+" /-->
+
+            <!-- https://docs.microsoft.com/da-dk/xamarin/xamarin-forms/user-interface/picker/populating-itemssource -->
+            <Picker x:Name="OperationPicker" Title="Operation" VerticalOptions="Start">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>+</x:String>
+                        <x:String>-</x:String>
+                        <x:String>*</x:String>
+                        <x:String>/</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <Entry Placeholder="Number"
+                   VerticalOptions="Start"
+                   Keyboard="Numeric"
+                   x:Name="Number2Entry" />
+
+            <Button
+                Margin="0, 0, 0, 0"
+                VerticalOptions="Start"
+                x:Name="ButtonCalculate"
+                Text="=" />
+
+            <Entry x:Name="ResultLabel"
+                   IsEnabled="False"
+                   Placeholder="Result"
+                   VerticalOptions="Start" />
+
+        </StackLayout>
+
+        <Label x:Name="MessageLabel" TextColor="Red" />
     </StackLayout>
 
 </ContentPage>
